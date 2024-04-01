@@ -28,7 +28,7 @@ public class UserServiceImpl implements IUserService {
             System.out.println("USARIO YA EXISTE");
         }
 
-        createRoleIfNotExists("ROLE_CLIENT", "The Customer User role is intended for those users who use the services or products offered by the company.");
+        //createRoleIfNotExists("ROLE_CLIENT", "The Customer User role is intended for those users who use the services or products offered by the company.");
         user.setRole(roleRepository.findByName("ROLE_CLIENT"));
         userRepository.save(user);
     }
@@ -41,11 +41,12 @@ public class UserServiceImpl implements IUserService {
             System.out.println("USARIO YA EXISTE");
         }
 
-        createRoleIfNotExists("ROLE_COMPANY", "The Company User role is designed to represent companies that offer products or services through the platform.");
+        //createRoleIfNotExists("ROLE_COMPANY", "The Company User role is designed to represent companies that offer products or services through the platform.");
         user.setRole(roleRepository.findByName("ROLE_COMPANY"));
         userRepository.save(user);
     }
 
+    /*
     private void createRoleIfNotExists(String name, String description){
         Role role = roleRepository.findByName(name);
         if (role == null){
@@ -55,4 +56,6 @@ public class UserServiceImpl implements IUserService {
             roleRepository.save(role);
         }
     }
+
+     */
 }

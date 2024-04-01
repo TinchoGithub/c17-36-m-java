@@ -9,19 +9,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/user")
-public class UserController {
+@RequestMapping("/api/client")
+public class ClientController {
 
     @Autowired
     private IUserService userService;
 
-    @PostMapping("/saveUserClient")
-    public void saveUserClient(@RequestBody User user){
+    @PostMapping("/saveUser")
+    public void saveUser(@RequestBody User user){
         userService.saveUserClient(user);
-    }
-
-    @PostMapping("saveUserCompany")
-    public void saveUserCompany(@RequestBody User user){
-        userService.saveUserCompany(user);
     }
 }
