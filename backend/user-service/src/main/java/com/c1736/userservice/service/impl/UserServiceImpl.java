@@ -5,13 +5,16 @@ import com.c1736.userservice.entities.User;
 import com.c1736.userservice.repository.IRoleRepository;
 import com.c1736.userservice.repository.IUserRepository;
 import com.c1736.userservice.service.IUserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class UserServiceImpl implements IUserService {
 
+    @Autowired
     private final IUserRepository userRepository;
-    private IRoleRepository iRoleRepository;
+    @Autowired
+    private IRoleRepository roleRepository;
 
     public UserServiceImpl(IUserRepository userRepository) {
         this.userRepository = userRepository;
@@ -21,15 +24,12 @@ public class UserServiceImpl implements IUserService {
     public void saveUserClient(User user) {
         String email = user.getEmail();
 
-        if (userRepository.existByEmail(email)){
-            System.out.println("USARIO NO EXISTE");
+        if (userRepository.existsByEmail(email)){
+            System.out.println("USARIO YA EXISTE");
         }
 
-        Role rol = new Role();
-        rol.setName("ROLE_CLINT");
-        rol.setDescription("The Customer User role is intended for those users who use the services or products offered by the company.");
-        user.setRole(rol);
-
+        createRoleIfNotExists("ROLE_CLIENT", "The Customer User role is intended for those users who use the services or products offered by the company.");
+        user.setRole(roleRepository.findByName("ROLE_CLIENT"));
         userRepository.save(user);
     }
 
@@ -37,15 +37,22 @@ public class UserServiceImpl implements IUserService {
     public void saveUserCompany(User user) {
         String email = user.getEmail();
 
-        if (userRepository.existByEmail(email)){
-            System.out.println("USARIO NO EXISTE");
+        if (userRepository.existsByEmail(email)){
+            System.out.println("USARIO YA EXISTE");
         }
 
-        Role rol = new Role();
-        rol.setName("ROLE_COMPANY");
-        rol.setDescription("The Company User role is designed to represent companies that offer products or services through the platform.");
-        user.setRole(rol);
-
+        createRoleIfNotExists("ROLE_COMPANY", "The Company User role is designed to represent companies that offer products or services through the platform.");
+        user.setRole(roleRepository.findByName("ROLE_COMPANY"));
         userRepository.save(user);
+    }
+
+    private void createRoleIfNotExists(String name, String description){
+        Role role = roleRepository.findByName(name);
+        if (role == null){
+            role = new Role();
+            role.setName(name);
+            role.setDescription(description);
+            roleRepository.save(role);
+        }
     }
 }
