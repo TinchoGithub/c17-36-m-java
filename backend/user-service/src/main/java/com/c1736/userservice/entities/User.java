@@ -27,7 +27,7 @@ public class User implements Serializable {
     @Column(unique = true)
     private String password;
     @Column(length = 15)
-    @Pattern(regexp = "^\+?54\s9\d{2}\s\d{3}\s\d{4}$", message = "El campo 'numberPhone' debe ser un número de teléfono celular válido. Ingrese el formato +54 9XX XXXX XXXX")
+    @Pattern(regexp = "^\\+?54\\s9\\d{2}\\s\\d{3}\\s\\d{4}$", message = "El campo 'numberPhone' debe ser un número de teléfono celular válido. Ingrese el formato +54 9XX XXXX XXXX")
     @NotBlank(message = "El campo 'phone' es obligatorio")
     private String phone;
     @ManyToOne
