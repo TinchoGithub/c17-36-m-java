@@ -1,5 +1,6 @@
 package com.c1736.bankservice.configuration;
 
+import com.c1736.bankservice.service.exceptions.AccountBankNotFound;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.ConstraintViolationException;
 import org.springframework.http.HttpStatus;
@@ -10,9 +11,13 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
+
+import static com.c1736.bankservice.configuration.Constants.ACCOUNT_BANK_NOT_FOUND_MESSAGE;
+import static com.c1736.bankservice.configuration.Constants.RESPONSE_MESSAGE_KEY;
 
 @ControllerAdvice
 public class ControllerAdvisor {
@@ -56,5 +61,10 @@ public class ControllerAdvisor {
         return ResponseEntity.badRequest().body(errors);
     }
 
-
+    @ExceptionHandler(AccountBankNotFound.class)
+    public ResponseEntity<Map<String, String>> handleAccountBankNotFound(
+            AccountBankNotFound accountBankNotFound) {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                .body(Collections.singletonMap(RESPONSE_MESSAGE_KEY, ACCOUNT_BANK_NOT_FOUND_MESSAGE));
+    }
 }

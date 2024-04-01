@@ -1,5 +1,6 @@
 package com.c1736.userservice.configuration;
 
+import com.c1736.userservice.service.exceptions.UserNotFoundException;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.ConstraintViolationException;
 import org.springframework.http.HttpStatus;
@@ -10,9 +11,13 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
+
+import static com.c1736.userservice.configuration.Constants.RESPONSE_MESSAGE_KEY;
+import static com.c1736.userservice.configuration.Constants.USER_NOT_FOUND_MESSAGE;
 
 @ControllerAdvice
 public class ControllerAdvisor {
@@ -56,5 +61,10 @@ public class ControllerAdvisor {
         return ResponseEntity.badRequest().body(errors);
     }
 
-
+    @ExceptionHandler(UserNotFoundException.class)
+    public ResponseEntity<Map<String, String>> handleUserNotFoundException(
+            UserNotFoundException userNotFoundException) {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                .body(Collections.singletonMap(RESPONSE_MESSAGE_KEY, USER_NOT_FOUND_MESSAGE));
+    }
 }
