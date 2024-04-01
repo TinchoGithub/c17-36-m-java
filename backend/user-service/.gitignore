@@ -425,4 +425,8 @@ xcuserdata/
 .history
 .ionide
 
+# Java Gradle Wrapper
+gradlew.bat
+
+
 # End of https://www.toptal.com/developers/gitignore/api/intellij,visualstudiocode,react,reactnative,java
