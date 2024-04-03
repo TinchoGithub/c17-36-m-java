@@ -2,7 +2,6 @@ package com.c1736.userservice.entities;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import lombok.*;
 
@@ -26,6 +25,7 @@ public class User implements Serializable {
     @Column(unique = true, nullable = false, length = 50)
     private String email;
     @Column(name = "password")
+    @Size(min = 4, max = 255, message = "La password debe tener entre 4 y 255 caracteres")
     private String password;
     @Column(length = 15)
     @Size(min = 11, max = 11, message = "El campo 'phone' debe tener 11 caracteres")
