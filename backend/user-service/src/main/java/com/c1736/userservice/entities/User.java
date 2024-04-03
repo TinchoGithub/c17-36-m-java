@@ -3,6 +3,7 @@ package com.c1736.userservice.entities;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
 import lombok.*;
 
 import java.io.Serializable;
@@ -24,10 +25,10 @@ public class User implements Serializable {
     private String lastName;
     @Column(unique = true, nullable = false, length = 50)
     private String email;
-    @Column(unique = true)
+    @Column(name = "password")
     private String password;
     @Column(length = 15)
-    @Pattern(regexp = "^\\+?54\\s9\\d{2}\\s\\d{3}\\s\\d{4}$", message = "El campo 'numberPhone' debe ser un número de teléfono celular válido. Ingrese el formato +54 9XX XXXX XXXX")
+    @Size(min = 11, max = 11, message = "El campo 'phone' debe tener 11 caracteres")
     @NotBlank(message = "El campo 'phone' es obligatorio")
     private String phone;
     @ManyToOne

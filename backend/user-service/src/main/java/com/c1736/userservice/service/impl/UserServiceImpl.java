@@ -1,24 +1,27 @@
 package com.c1736.userservice.service.impl;
 
-import com.c1736.userservice.entities.Role;
 import com.c1736.userservice.entities.User;
 import com.c1736.userservice.repository.IRoleRepository;
 import com.c1736.userservice.repository.IUserRepository;
+import com.c1736.userservice.service.IAuthPasswordEncoderPort;
 import com.c1736.userservice.service.IUserService;
-import org.springframework.beans.factory.annotation.Autowired;
+import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 @Service
+@Transactional
 public class UserServiceImpl implements IUserService {
 
-    @Autowired
     private final IUserRepository userRepository;
-    @Autowired
-    private IRoleRepository roleRepository;
+    private final IRoleRepository roleRepository;
+    private final IAuthPasswordEncoderPort authPasswordEncoderPort;
 
-    public UserServiceImpl(IUserRepository userRepository) {
+    public UserServiceImpl(IUserRepository userRepository, IRoleRepository roleRepository, IAuthPasswordEncoderPort authPasswordEncoderPort) {
         this.userRepository = userRepository;
+        this.roleRepository = roleRepository;
+        this.authPasswordEncoderPort = authPasswordEncoderPort;
     }
+
 
     @Override
     public void saveUserClient(User user) {
@@ -30,6 +33,7 @@ public class UserServiceImpl implements IUserService {
 
         //createRoleIfNotExists("ROLE_CLIENT", "The Customer User role is intended for those users who use the services or products offered by the company.");
         user.setRole(roleRepository.findByName("ROLE_CLIENT"));
+        user.setPassword(authPasswordEncoderPort.encodePassword(user.getPassword()));
         userRepository.save(user);
     }
 
@@ -43,6 +47,7 @@ public class UserServiceImpl implements IUserService {
 
         //createRoleIfNotExists("ROLE_COMPANY", "The Company User role is designed to represent companies that offer products or services through the platform.");
         user.setRole(roleRepository.findByName("ROLE_COMPANY"));
+        user.setPassword(authPasswordEncoderPort.encodePassword(user.getPassword()));
         userRepository.save(user);
     }
 
