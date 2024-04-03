@@ -6,6 +6,7 @@ import com.c1736.userservice.repository.IUserRepository;
 import com.c1736.userservice.service.IAuthPasswordEncoderPort;
 import com.c1736.userservice.service.IUserService;
 import jakarta.transaction.Transactional;
+import com.c1736.userservice.service.exceptions.UserAlreadyExistsException;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -25,13 +26,11 @@ public class UserServiceImpl implements IUserService {
 
     @Override
     public void saveUserClient(User user) {
+
         String email = user.getEmail();
-
         if (userRepository.existsByEmail(email)){
-            System.out.println("USARIO YA EXISTE");
+            throw new UserAlreadyExistsException();
         }
-
-        //createRoleIfNotExists("ROLE_CLIENT", "The Customer User role is intended for those users who use the services or products offered by the company.");
         user.setRole(roleRepository.findByName("ROLE_CLIENT"));
         user.setPassword(authPasswordEncoderPort.encodePassword(user.getPassword()));
         userRepository.save(user);
@@ -39,28 +38,15 @@ public class UserServiceImpl implements IUserService {
 
     @Override
     public void saveUserCompany(User user) {
+
         String email = user.getEmail();
-
         if (userRepository.existsByEmail(email)){
-            System.out.println("USARIO YA EXISTE");
+            throw new UserAlreadyExistsException();
         }
-
-        //createRoleIfNotExists("ROLE_COMPANY", "The Company User role is designed to represent companies that offer products or services through the platform.");
         user.setRole(roleRepository.findByName("ROLE_COMPANY"));
         user.setPassword(authPasswordEncoderPort.encodePassword(user.getPassword()));
         userRepository.save(user);
+
     }
 
-    /*
-    private void createRoleIfNotExists(String name, String description){
-        Role role = roleRepository.findByName(name);
-        if (role == null){
-            role = new Role();
-            role.setName(name);
-            role.setDescription(description);
-            roleRepository.save(role);
-        }
-    }
-
-     */
 }

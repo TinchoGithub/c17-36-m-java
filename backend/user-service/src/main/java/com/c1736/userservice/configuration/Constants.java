@@ -14,4 +14,5 @@ public class Constants {
     public static final String RESPONSE_MESSAGE_KEY = "message";
     public static final String USER_NOT_FOUND_MESSAGE = "Usuario no encontrado.";
     public static final String UNAUTHORIZED_MESSAGE = "No tienes permiso para acceder a este recurso.";
+    public static final String USER_ALREADY_EXISTS_MESSAGE = "El usuario ya existe en la base de datos";
 }
