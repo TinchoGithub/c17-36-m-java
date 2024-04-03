@@ -2,6 +2,7 @@ package com.c1736.userservice.controller;
 
 import com.c1736.userservice.entities.User;
 import com.c1736.userservice.service.IUserService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -11,14 +12,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-@RequestMapping("/api/client")
+@RequestMapping("/api/v1/client")
 public class ClientController {
 
     @Autowired
     private IUserService userService;
 
     @PostMapping("/saveUser")
-    public void saveUser(@RequestBody User user){
+    public void saveUser(@Valid @RequestBody User user){
         userService.saveUserClient(user);
     }
 }
