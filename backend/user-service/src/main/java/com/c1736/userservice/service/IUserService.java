@@ -10,5 +10,8 @@ public interface IUserService {
     void saveUserCompany(User user);
     User findUserById(Long id);
     List<User>findAllUsers();
+    User updateUserById(Long id, User user);
+    void deleteUserById(Long id);
+
 
 }
