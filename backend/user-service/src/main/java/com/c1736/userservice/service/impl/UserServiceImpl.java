@@ -7,7 +7,11 @@ import com.c1736.userservice.service.IAuthPasswordEncoderPort;
 import com.c1736.userservice.service.IUserService;
 import jakarta.transaction.Transactional;
 import com.c1736.userservice.service.exceptions.UserAlreadyExistsException;
+import com.c1736.userservice.service.exceptions.UserNotFoundException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import java.util.List;
+import java.util.Optional;
 
 @Service
 @Transactional
@@ -47,6 +51,17 @@ public class UserServiceImpl implements IUserService {
         user.setPassword(authPasswordEncoderPort.encodePassword(user.getPassword()));
         userRepository.save(user);
 
+    }
+
+    @Override
+    public User findUserById(Long id) {
+        return userRepository.findById(id)
+                .orElseThrow(UserNotFoundException::new);
+    }
+
+    @Override
+    public List<User> findAllUsers() {
+        return userRepository.findAll();
     }
 
 }
