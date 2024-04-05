@@ -64,4 +64,27 @@ public class UserServiceImpl implements IUserService {
         return userRepository.findAll();
     }
 
+    @Override
+    public User updateUserById(Long id, User user) {
+        User userExist = userRepository.findById(id)
+                    .orElseThrow(UserNotFoundException::new);
+
+       userExist.setFirstName(user.getFirstName());
+       userExist.setLastName(user.getLastName());
+       userExist.setPhone(user.getPhone());
+       userExist.setEmail(user.getEmail());
+       userExist.setPassword(authPasswordEncoderPort.encodePassword(user.getPassword()));
+       userExist.setRole(user.getRole());
+
+        return userRepository.save(userExist);
+    }
+
+    @Override
+    public void deleteUserById(Long id) {
+        if(!userRepository.existsById(id)){
+            throw new UserNotFoundException();
+        }
+        userRepository.deleteById(id);
+    }
+
 }
