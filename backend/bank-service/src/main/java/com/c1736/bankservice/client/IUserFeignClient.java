@@ -3,11 +3,11 @@ package com.c1736.bankservice.client;
 import com.c1736.bankservice.client.dto.UserDTO;
 import com.c1736.bankservice.client.interceptor.FeignClientInterceptor;
 import jakarta.validation.Valid;
-import org.apache.catalina.User; // CONSULTAR
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -18,17 +18,19 @@ public interface IUserFeignClient {
     public UserDTO findUserById(@PathVariable Long id);
 
     @GetMapping("/api/v1/admin/findAllUser")
-    public List<User> findAllUsers();
+    public List<UserDTO> findAllUsers();
 
     @GetMapping("/api/v1/admin/updateUser/{id}")
-    public User updateUserById(@PathVariable Long id, @RequestBody User user);
+    public UserDTO updateUserById(@PathVariable Long id, @RequestBody UserDTO user);
 
     @GetMapping("/api/v1/admin/deleteUser/{Id}")
     public void deleteUserById(@PathVariable Long Id);
 
     @GetMapping("/api/v1/client/saveUser")
-    public void saveUser(@Valid @RequestBody User user);
+    public void saveUser(@Valid @RequestBody UserDTO user);
 
-    @GetMapping("/api/v1/admin/findByEmail")
-    public UserDTO findUserByEmail(String email);
+    @GetMapping("/api/v1/company/getUser")
+    UserDTO getUserCompany(@RequestParam String email);
+    @GetMapping("/api/v1/client/getUser")
+    UserDTO getUserClient(@RequestParam String email);
 }
