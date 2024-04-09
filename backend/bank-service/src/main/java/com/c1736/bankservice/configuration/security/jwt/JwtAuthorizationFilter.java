@@ -41,7 +41,7 @@ public class JwtAuthorizationFilter extends OncePerRequestFilter {
         String endpoint = request.getRequestURI();
         Map<String, List<String>> rolesEndpointsMap = new HashMap<>();
 
-        rolesEndpointsMap.put("ROLE_ADMIN", Arrays.asList("/api/v1/admin/{id}", "api/v1/admin", "api/v1/admin/deleteAccount/{id}"));
+        rolesEndpointsMap.put("ROLE_ADMIN", Arrays.asList("/api/v1/admin/{id}", "api/v1/admin/listAccounts", "api/v1/admin/deleteAccount/{id}"));
         rolesEndpointsMap.put("ROLE_COMPANY", Arrays.asList("/api/v1/company/account", "/api/v1/company/updateAccount/{id}", "/api/v1/company/deleteAccount/{id}"));
         rolesEndpointsMap.put("ROLE_CLIENT", Arrays.asList("/api/v1/client/account", "/api/v1/client/updateAccount/{id}", "/api/v1/client/deleteAccount/{id}"));
 
