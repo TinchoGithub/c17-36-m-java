@@ -24,14 +24,13 @@ public class AdminController {
 
     @GetMapping("/{id}")
     public ResponseEntity<AccountBankResponseDto> getAccountBank(@PathVariable Long id) {
-        Optional<AccountBankResponseDto> accountBank = accountBankService.getAccountBank(id);
+        Optional<AccountBankResponseDto> accountBank = Optional.ofNullable(accountBankService.getAccountBank(id));
         return accountBank.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    @GetMapping
+    @GetMapping("/listAccounts")
     public ResponseEntity<List<AccountBankResponseDto>> getAllAccountBank() {
-        List<AccountBankResponseDto> accountBanks = accountBankService.getAllAccountBank();
-        return ResponseEntity.ok(accountBanks);
+        return ResponseEntity.ok(accountBankService.getAllAccountBank());
     }
 
     @DeleteMapping("/deleteAccount/{id}")

@@ -13,6 +13,7 @@ public class Constants {
     public static final String SWAGGER_TERMS_OF_SERVICE_MESSAGE = "http://swagger.io/terms/";
     public static final String RESPONSE_MESSAGE_KEY = "message";
     public static final String ACCOUNT_BANK_NOT_FOUND_MESSAGE = "La cuenta de banco no existe.";
-    public static final String USER_NOT_FOUND_MESSAGE = "No se encuentran datos.";
+    public static final String USER_NOT_FOUND_MESSAGE = "Este correo no pertenece a ningun usuario.";
     public static final String UNAUTHORIZED_MESSAGE = "No tiene permisos para acceder a este recurso.";
+    public static final String NO_DATA_FOUND_MESSAGE = "No data found.";
 }

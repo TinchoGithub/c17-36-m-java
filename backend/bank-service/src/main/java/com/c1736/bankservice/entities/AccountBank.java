@@ -41,8 +41,7 @@ public class AccountBank implements Serializable {
     private AccountTypeEnum accountType;
 
     @NotNull(message = "El balance es obligatorio")
-    @PositiveOrZero(message = "El balance debe ser mayor o igual a cero")
-    private Integer balance;
+    private String balance;
 
     @NotNull(message = "El tipo de moneda es obligatorio")
     @Enumerated(EnumType.STRING)

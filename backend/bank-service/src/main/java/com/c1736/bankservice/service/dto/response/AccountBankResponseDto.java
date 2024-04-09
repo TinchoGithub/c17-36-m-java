@@ -14,6 +14,6 @@ public class AccountBankResponseDto {
     private Long id;
     private String email;
     private AccountTypeEnum accountType;
-    private Integer balance;
+    private String balance;
     private TypeCoinEnum typeCoin;
 }

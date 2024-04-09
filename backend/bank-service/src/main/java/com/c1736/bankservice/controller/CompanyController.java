@@ -1,7 +1,11 @@
 package com.c1736.bankservice.controller;
 
+import com.c1736.bankservice.client.IUserFeignClient;
+import com.c1736.bankservice.client.dto.UserDTO;
 import com.c1736.bankservice.service.dto.request.AccountBankRequestDto;
 import com.c1736.bankservice.service.dto.request.UpdateAccountBankRequestDto;
+import com.c1736.bankservice.service.exceptions.UnauthorizedException;
+import com.c1736.bankservice.service.exceptions.UserNotFound;
 import com.c1736.bankservice.service.impl.AccountBankService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,13 +21,20 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/v1/company")
 public class CompanyController {
     private final AccountBankService accountBankService;
+    private final IUserFeignClient userFeignClient;
 
-    public CompanyController(AccountBankService accountBankService) {
+    public CompanyController(AccountBankService accountBankService, IUserFeignClient userFeignClient) {
         this.accountBankService = accountBankService;
+        this.userFeignClient = userFeignClient;
     }
 
     @PostMapping("/account")
     public ResponseEntity<Void> saveAccount(@RequestBody AccountBankRequestDto accountBankRequestDto) {
+        UserDTO user = userFeignClient.getUserCompany(accountBankRequestDto.getEmail());
+
+        if (user == null) throw new UserNotFound();
+        if (!user.getRole().getName().equals("ROLE_COMPANY")) throw new UnauthorizedException();
+
         accountBankService.saveAccount(accountBankRequestDto);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }

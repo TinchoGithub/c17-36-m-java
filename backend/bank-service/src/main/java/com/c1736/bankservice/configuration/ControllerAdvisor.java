@@ -1,6 +1,7 @@
 package com.c1736.bankservice.configuration;
 
 import com.c1736.bankservice.service.exceptions.AccountBankNotFound;
+import com.c1736.bankservice.service.exceptions.NoDataFound;
 import com.c1736.bankservice.service.exceptions.UnauthorizedException;
 import com.c1736.bankservice.service.exceptions.UserNotFound;
 import jakarta.validation.ConstraintViolation;
@@ -19,6 +20,7 @@ import java.util.Map;
 import java.util.Set;
 
 import static com.c1736.bankservice.configuration.Constants.ACCOUNT_BANK_NOT_FOUND_MESSAGE;
+import static com.c1736.bankservice.configuration.Constants.NO_DATA_FOUND_MESSAGE;
 import static com.c1736.bankservice.configuration.Constants.RESPONSE_MESSAGE_KEY;
 import static com.c1736.bankservice.configuration.Constants.UNAUTHORIZED_MESSAGE;
 import static com.c1736.bankservice.configuration.Constants.USER_NOT_FOUND_MESSAGE;
@@ -84,5 +86,12 @@ public class ControllerAdvisor {
             UnauthorizedException unauthorizedException) {
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
                 .body(Collections.singletonMap(RESPONSE_MESSAGE_KEY, UNAUTHORIZED_MESSAGE));
+    }
+
+    @ExceptionHandler(NoDataFound.class)
+    public ResponseEntity<Map<String, String>> handleNoDataFound(
+            NoDataFound noDataFound) {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                .body(Collections.singletonMap(RESPONSE_MESSAGE_KEY, NO_DATA_FOUND_MESSAGE));
     }
 }
