@@ -88,11 +88,11 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
-    public User findByEmail(String email) {
+    public Optional<User> findByEmail(String email) {
        if (!userRepository.existsByEmail(email)){
            throw new UserNotFoundException();
        }else {
-           return userRepository.findByEmail(email);
+           return Optional.ofNullable(userRepository.findByEmail(email));
        }
 
     }
