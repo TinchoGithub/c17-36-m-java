@@ -428,3 +428,8 @@ xcuserdata/
 .ionide
 
 # End of https://www.toptal.com/developers/gitignore/api/intellij,visualstudiocode,react,reactnative,java
+
+###Ignorar archivos de Gradle
+gradlew
+gradlew.bat
+/gradle/
