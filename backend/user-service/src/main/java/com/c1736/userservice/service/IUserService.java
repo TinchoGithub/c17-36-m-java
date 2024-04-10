@@ -4,6 +4,7 @@ package com.c1736.userservice.service;
 import com.c1736.userservice.entities.User;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface IUserService {
     void saveUserClient(User user);
@@ -12,7 +13,7 @@ public interface IUserService {
     List<User>findAllUsers();
     User updateUserById(Long id, User user);
     void deleteUserById(Long id);
-    User findByEmail(String email);
+    Optional<User> findByEmail(String email);
 
 
 }

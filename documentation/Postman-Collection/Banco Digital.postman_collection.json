@@ -58,7 +58,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"firstName\": \"Yi\",\r\n    \"lastName\": \"ge\",\r\n    \"email\": \"ge@gmail.com\",\r\n    \"password\": \"ge\",\r\n    \"phone\": \"91158562789\"\r\n}",
+									"raw": "{\r\n    \"firstName\": \"Jesus\",\r\n    \"lastName\": \"Aldo\",\r\n    \"email\": \"aldo@gmail.com\",\r\n    \"password\": \"Aldo\",\r\n    \"phone\": \"91158562789\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -89,7 +89,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"firstName\": \"Mao\",\r\n    \"lastName\": \"Sun\",\r\n    \"email\": \"mao@gmail.com\",\r\n    \"password\": \"Sun\",\r\n    \"phone\": \"91151162789\"\r\n}",
+									"raw": "{\r\n    \"firstName\": \"Mao\",\r\n    \"lastName\": \"Sunzun\",\r\n    \"email\": \"mao@gmail.com\",\r\n    \"password\": \"Sunzun\",\r\n    \"phone\": \"91151162789\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -112,6 +112,355 @@
 								}
 							},
 							"response": []
+						}
+					]
+				},
+				{
+					"name": "bank-service",
+					"item": [
+						{
+							"name": "admin",
+							"item": [
+								{
+									"name": "Get All Accounts",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBtYWlsLmNvbSIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNzEyNjkwMzA0LCJleHAiOjE3MzQyOTAzMDR9.9YIGYpj9mFKwq6DS_wI5NSzzQXxmjzHgw3CNMhNsKuTxmSAHk3r7DtcKXLP34nwTl60QAytNG4L_2Jv11EtK6A",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8092/api/v1/admin/listAccounts",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8092",
+											"path": [
+												"api",
+												"v1",
+												"admin",
+												"listAccounts"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get Account",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBtYWlsLmNvbSIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNzEyNjkwMzA0LCJleHAiOjE3MzQyOTAzMDR9.9YIGYpj9mFKwq6DS_wI5NSzzQXxmjzHgw3CNMhNsKuTxmSAHk3r7DtcKXLP34nwTl60QAytNG4L_2Jv11EtK6A",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8092/api/v1/admin/2",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8092",
+											"path": [
+												"api",
+												"v1",
+												"admin",
+												"2"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete Account",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBtYWlsLmNvbSIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNzEyNjkwMzA0LCJleHAiOjE3MzQyOTAzMDR9.9YIGYpj9mFKwq6DS_wI5NSzzQXxmjzHgw3CNMhNsKuTxmSAHk3r7DtcKXLP34nwTl60QAytNG4L_2Jv11EtK6A",
+													"type": "string"
+												}
+											]
+										},
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8092/api/v1/admin/deleteAccount/1",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8092",
+											"path": [
+												"api",
+												"v1",
+												"admin",
+												"deleteAccount",
+												"1"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "company",
+							"item": [
+								{
+									"name": "Update Account",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJtYW9AZ21haWwuY29tIiwicm9sZXMiOlsiUk9MRV9DT01QQU5ZIl0sImlhdCI6MTcxMjY4ODc0NiwiZXhwIjoxNzM0Mjg4NzQ2fQ.qxow4-1IsRWJ_ZQPqtRVJuuxEx9O5WWYJtDbZR0SAieKEW-x0lcD9AK5_1AFTUmfNUcYpdvBaMRtHoHz6hDkww",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"email\": \"mao@gmail.com\",\r\n  \"accountType\": \"AHORRO\",\r\n  \"typeCoin\": \"ARG\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8092/api/v1/company/updateAccount/1",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8092",
+											"path": [
+												"api",
+												"v1",
+												"company",
+												"updateAccount",
+												"1"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Save Account",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJtYW9AZ21haWwuY29tIiwicm9sZXMiOlsiUk9MRV9DT01QQU5ZIl0sImlhdCI6MTcxMjY4ODc0NiwiZXhwIjoxNzM0Mjg4NzQ2fQ.qxow4-1IsRWJ_ZQPqtRVJuuxEx9O5WWYJtDbZR0SAieKEW-x0lcD9AK5_1AFTUmfNUcYpdvBaMRtHoHz6hDkww",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"email\": \"mao@gmail.com\",\r\n  \"accountType\": \"AHORRO\",\r\n  \"balance\": \"850000\",\r\n  \"typeCoin\": \"ARG\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8092/api/v1/company/account",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8092",
+											"path": [
+												"api",
+												"v1",
+												"company",
+												"account"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete Account",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJtYW9AZ21haWwuY29tIiwicm9sZXMiOlsiUk9MRV9DT01QQU5ZIl0sImlhdCI6MTcxMjY4ODc0NiwiZXhwIjoxNzM0Mjg4NzQ2fQ.qxow4-1IsRWJ_ZQPqtRVJuuxEx9O5WWYJtDbZR0SAieKEW-x0lcD9AK5_1AFTUmfNUcYpdvBaMRtHoHz6hDkww",
+													"type": "string"
+												}
+											]
+										},
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8092/api/v1/company/deleteAccount/1",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8092",
+											"path": [
+												"api",
+												"v1",
+												"company",
+												"deleteAccount",
+												"1"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "client",
+							"item": [
+								{
+									"name": "Update Account",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhbGRvQGdtYWlsLmNvbSIsInJvbGVzIjpbIlJPTEVfQ0xJRU5UIl0sImlhdCI6MTcxMjY5MDE5OCwiZXhwIjoxNzM0MjkwMTk4fQ.H386359VE3ALOAdU5m9jwZWZXiLQtgdh-pWRlhykOewlmwiQ6qLb6VmPymjWqvGAOOdHVpVFb4U5cXp2u39WeQ",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"email\": \"aldo@gmail.com\",\r\n  \"accountType\": \"AHORRO\",\r\n  \"typeCoin\": \"ARG\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8092/api/v1/client/updateAccount/1",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8092",
+											"path": [
+												"api",
+												"v1",
+												"client",
+												"updateAccount",
+												"1"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Save Account",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhbGRvQGdtYWlsLmNvbSIsInJvbGVzIjpbIlJPTEVfQ0xJRU5UIl0sImlhdCI6MTcxMjY5MDE5OCwiZXhwIjoxNzM0MjkwMTk4fQ.H386359VE3ALOAdU5m9jwZWZXiLQtgdh-pWRlhykOewlmwiQ6qLb6VmPymjWqvGAOOdHVpVFb4U5cXp2u39WeQ",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"email\": \"aldo@gmail.com\",\r\n  \"accountType\": \"AHORRO\",\r\n  \"balance\": 55000,\r\n  \"typeCoin\": \"ARG\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8092/api/v1/client/account",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8092",
+											"path": [
+												"api",
+												"v1",
+												"client",
+												"account"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete Account",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhbGRvQGdtYWlsLmNvbSIsInJvbGVzIjpbIlJPTEVfQ0xJRU5UIl0sImlhdCI6MTcxMjY5MDE5OCwiZXhwIjoxNzM0MjkwMTk4fQ.H386359VE3ALOAdU5m9jwZWZXiLQtgdh-pWRlhykOewlmwiQ6qLb6VmPymjWqvGAOOdHVpVFb4U5cXp2u39WeQ",
+													"type": "string"
+												}
+											]
+										},
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8092/api/v1/client/deleteAccount/1",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8092",
+											"path": [
+												"api",
+												"v1",
+												"client",
+												"deleteAccount",
+												"1"
+											]
+										}
+									},
+									"response": []
+								}
+							]
 						}
 					]
 				}
