@@ -4,6 +4,7 @@ import com.c1736.bankservice.client.IUserFeignClient;
 import com.c1736.bankservice.client.dto.UserDTO;
 import com.c1736.bankservice.service.dto.request.AccountBankRequestDto;
 import com.c1736.bankservice.service.dto.request.UpdateAccountBankRequestDto;
+import com.c1736.bankservice.service.dto.response.AccountBankResponseDto;
 import com.c1736.bankservice.service.exceptions.UnauthorizedException;
 import com.c1736.bankservice.service.exceptions.UserNotFound;
 import com.c1736.bankservice.service.impl.AccountBankService;
@@ -41,14 +42,28 @@ public class ClientController {
 
     @PutMapping("/updateAccount/{id}")
     public ResponseEntity<Void> updateAccount(@PathVariable Long id, @RequestBody UpdateAccountBankRequestDto updateAccountBankRequestDto) {
+        UserDTO user = userFeignClient.getUserClient(updateAccountBankRequestDto.getEmail());
+
+        if (user == null) throw new UserNotFound();
+        if (!user.getRole().getName().equals("ROLE_CLIENT")) throw new UnauthorizedException();
+
         updateAccountBankRequestDto.setId(id);
         accountBankService.updateAccount(updateAccountBankRequestDto);
-        return ResponseEntity.noContent().build();
+        return ResponseEntity.status(HttpStatus.OK).build();
     }
 
     @DeleteMapping("/deleteAccount/{id}")
     public ResponseEntity<Void> deleteAccountBank(@PathVariable Long id) {
+        AccountBankResponseDto accountBankResponseDto = accountBankService.getAccountBank(id);
+        UserDTO user = userFeignClient.getUserClient(accountBankResponseDto.getEmail());
+
+        if (user == null) throw new UserNotFound();
+        if (!user.getRole().getName().equals("ROLE_ADMIN")) {
+            if (!user.getRole().getName().equals("ROLE_CLIENT")) {
+                throw new UnauthorizedException();
+            }
+        }
         accountBankService.deleteAccountBank(id);
-        return ResponseEntity.noContent().build();
+        return ResponseEntity.status(HttpStatus.OK).build();
     }
 }

@@ -17,9 +17,13 @@ import java.util.Optional;
 public class AdminController {
 
     private final AccountBankService accountBankService;
+    private final ClientController clientController;
+    private final CompanyController companyController;
 
-    public AdminController(AccountBankService accountBankService) {
+    public AdminController(AccountBankService accountBankService, ClientController clientController, CompanyController companyController) {
         this.accountBankService = accountBankService;
+        this.clientController = clientController;
+        this.companyController = companyController;
     }
 
     @GetMapping("/{id}")
@@ -36,6 +40,6 @@ public class AdminController {
     @DeleteMapping("/deleteAccount/{id}")
     public ResponseEntity<Void> deleteAccountBank(@PathVariable Long id) {
         accountBankService.deleteAccountBank(id);
-        return ResponseEntity.noContent().build();
+        return ResponseEntity.ok().build();
     }
 }
