@@ -40,7 +40,6 @@ public class AccountBank implements Serializable {
     @Column(name="accountType")
     private AccountTypeEnum accountType;
 
-    @NotNull(message = "El balance es obligatorio")
     private String balance;
 
     @NotNull(message = "El tipo de moneda es obligatorio")

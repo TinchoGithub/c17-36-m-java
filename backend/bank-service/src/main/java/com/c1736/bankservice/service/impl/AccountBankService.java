@@ -1,6 +1,7 @@
 package com.c1736.bankservice.service.impl;
 
 import com.c1736.bankservice.client.IUserFeignClient;
+import com.c1736.bankservice.client.dto.UserDTO;
 import com.c1736.bankservice.entities.AccountBank;
 import com.c1736.bankservice.repository.IAccountBankRepository;
 import com.c1736.bankservice.service.IAccountBankService;
@@ -9,6 +10,7 @@ import com.c1736.bankservice.service.dto.request.UpdateAccountBankRequestDto;
 import com.c1736.bankservice.service.dto.response.AccountBankResponseDto;
 import com.c1736.bankservice.service.exceptions.AccountBankNotFound;
 import com.c1736.bankservice.service.exceptions.NoDataFound;
+import com.c1736.bankservice.service.exceptions.UnauthorizedException;
 import com.c1736.bankservice.service.exceptions.UserNotFound;
 import com.c1736.bankservice.service.mapper.request.IAccountBankRequestMapper;
 import com.c1736.bankservice.service.mapper.response.IAccountBankResponseMapper;
@@ -16,7 +18,10 @@ import jakarta.transaction.Transactional;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
+import java.text.NumberFormat;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -55,7 +60,8 @@ public class AccountBankService implements IAccountBankService {
 
     @Override
     public void saveAccount(AccountBankRequestDto accountBankRequestDto) {
-        String balanceFormat = "$" + accountBankRequestDto.getBalance();
+        // Establecer el saldo en cero y darle formato adecuado
+        String balanceFormat = "$0";
         accountBankRequestDto.setBalance(balanceFormat);
 
         AccountBank accountBank = accountBankRequestMapper.toAccountBankRequest(accountBankRequestDto);
@@ -68,7 +74,12 @@ public class AccountBankService implements IAccountBankService {
 
         if (optionalAccountBank.isPresent()) {
             AccountBank accountBank = optionalAccountBank.get();
-            accountBank.setEmail(updateAccountBankRequestDto.getEmail());
+
+            // Validar si el usuario que realiza la actualización es el propietario de la cuenta
+            if (!accountBank.getEmail().equals(updateAccountBankRequestDto.getEmail())) {
+                throw new UnauthorizedException();
+            }
+            
             accountBank.setAccountType(updateAccountBankRequestDto.getAccountType());
             accountBank.setTypeCoin(updateAccountBankRequestDto.getTypeCoin());
             accountBankRepository.save(accountBank);
