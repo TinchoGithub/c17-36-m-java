@@ -36,10 +36,4 @@ public class AdminController {
     public ResponseEntity<List<AccountBankResponseDto>> getAllAccountBank() {
         return ResponseEntity.ok(accountBankService.getAllAccountBank());
     }
-
-    @DeleteMapping("/deleteAccount/{id}")
-    public ResponseEntity<Void> deleteAccountBank(@PathVariable Long id) {
-        accountBankService.deleteAccountBank(id);
-        return ResponseEntity.ok().build();
-    }
 }
