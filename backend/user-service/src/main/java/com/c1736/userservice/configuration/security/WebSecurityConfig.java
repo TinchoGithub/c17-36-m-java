@@ -17,6 +17,11 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.web.filter.CorsFilter;
+
+import java.util.Arrays;
 
 @Configuration
 @EnableWebSecurity
@@ -64,6 +69,20 @@ public class WebSecurityConfig {
                 UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
+    }
+
+    @Bean
+    public CorsFilter corsFilter() {
+        CorsConfiguration corsConfiguration = new CorsConfiguration();
+        corsConfiguration.setAllowedOrigins(Arrays.asList("*")); // Permitir solicitudes desde todos los orígenes
+        corsConfiguration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS")); // Permitir los métodos HTTP especificados
+        corsConfiguration.setAllowedHeaders(Arrays.asList("*")); // Permitir todos los encabezados
+        corsConfiguration.setAllowCredentials(true); // Permitir el envío de cookies de autenticación
+
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", corsConfiguration);
+
+        return new CorsFilter(source);
     }
 
     @Bean
