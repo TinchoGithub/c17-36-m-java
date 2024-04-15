@@ -26,28 +26,4 @@ public class EmailController {
         return new ResponseEntity<>("Correo enviado", HttpStatus.OK);
     }
 
-
-
-    /*
-    @PostMapping("admin/sendEmail")
-    public ResponseEntity<String> sendEmail(@RequestBody EmailDTO email) throws MessagingException {
-        emailService.sendMail(email);
-        return new ResponseEntity<>("Correo enviado", HttpStatus.OK);
-    }
-
-    @PostMapping("client/sendEmail")
-    public ResponseEntity<String> sendEmailClient(@RequestBody EmailDTO email) throws MessagingException {
-        emailService.sendMail(email);
-        return new ResponseEntity<>("Correo enviado", HttpStatus.OK);
-    }
-
-    @PostMapping("company/sendEmail")
-    public ResponseEntity<String> sendEmailCompany(@RequestBody EmailDTO email) throws MessagingException {
-        emailService.sendMail(email);
-        return new ResponseEntity<>("Correo enviado", HttpStatus.OK);
-    }
-
-     */
-
-
 }
