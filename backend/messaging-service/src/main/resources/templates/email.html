@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Grow Bank</title>
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            color: #007bff;
+        }
+        p {
+            color: #333333;
+        }
+        .logo {
+            max-width: 200px;
+        }
+    </style>
+</head>
+<body>
+<!-- Saludo -->
+<h1>Grow Bank - Tu Banca Digital</h1>
+
+<!-- Mensaje personalizado -->
+<p>Estimado/a:</p>
+<p th:text="${message}"></p>
+
+<!-- Logo de la empresa -->
+<img src="/static/banner.png" alt="Logo de la empresa" class="logo">
+</body>
+</html>

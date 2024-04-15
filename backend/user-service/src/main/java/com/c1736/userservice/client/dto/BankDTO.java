@@ -8,4 +8,9 @@ import lombok.Setter;
 @Getter
 @Setter
 public class BankDTO {
+    private String email;
+    private AccountTypeEnum accountType;
+    private String balance;
+    private TypeCoinEnum typeCoin;
+
 }
