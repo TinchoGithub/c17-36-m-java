@@ -1,5 +1,7 @@
 package com.c1736.userservice.service.impl;
 
+import com.c1736.userservice.client.IMessagingFeignClient;
+import com.c1736.userservice.client.dto.MessagingDTO;
 import com.c1736.userservice.entities.User;
 import com.c1736.userservice.repository.IRoleRepository;
 import com.c1736.userservice.repository.IUserRepository;
@@ -20,11 +22,13 @@ public class UserServiceImpl implements IUserService {
     private final IUserRepository userRepository;
     private final IRoleRepository roleRepository;
     private final IAuthPasswordEncoderPort authPasswordEncoderPort;
+    private final IMessagingFeignClient messagingFeignClient;
 
-    public UserServiceImpl(IUserRepository userRepository, IRoleRepository roleRepository, IAuthPasswordEncoderPort authPasswordEncoderPort) {
+    public UserServiceImpl(IUserRepository userRepository, IRoleRepository roleRepository, IAuthPasswordEncoderPort authPasswordEncoderPort, IMessagingFeignClient messagingFeignClient) {
         this.userRepository = userRepository;
         this.roleRepository = roleRepository;
         this.authPasswordEncoderPort = authPasswordEncoderPort;
+        this.messagingFeignClient = messagingFeignClient;
     }
 
 
@@ -38,6 +42,10 @@ public class UserServiceImpl implements IUserService {
         user.setRole(roleRepository.findByName("ROLE_CLIENT"));
         user.setPassword(authPasswordEncoderPort.encodePassword(user.getPassword()));
         userRepository.save(user);
+
+        MessagingDTO dto = new MessagingDTO(user.getEmail(), "CLIENTE CREADO EXITOSAMENTE", ConstantMessages.NEW_CLIENT);
+        messagingFeignClient.sendEmail(dto);
+
     }
 
     @Override
@@ -50,6 +58,9 @@ public class UserServiceImpl implements IUserService {
         user.setRole(roleRepository.findByName("ROLE_COMPANY"));
         user.setPassword(authPasswordEncoderPort.encodePassword(user.getPassword()));
         userRepository.save(user);
+
+        MessagingDTO messageDto = new MessagingDTO(user.getEmail(), "COMPAÑÍA CREADA EXITOSAMENTE", ConstantMessages.NEW_COMPANY);
+        messagingFeignClient.sendEmail(messageDto);
 
     }
 

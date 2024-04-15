@@ -3,3 +3,10 @@ server:
 
 appDescription: "Messaging-Service"
 appVersion: "1.0.0"
+
+spring:
+  thymeleaf:
+    enabled: true
+    prefix: classpath:/templates/
+    suffix: .html
+    cache: false

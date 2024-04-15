@@ -1,7 +1,10 @@
 package com.c1736.bankservice.service.impl;
 
+import com.c1736.bankservice.client.IMessagingFeignClient;
 import com.c1736.bankservice.client.IUserFeignClient;
+import com.c1736.bankservice.client.dto.MessagingDTO;
 import com.c1736.bankservice.client.dto.UserDTO;
+import com.c1736.bankservice.configuration.Constants;
 import com.c1736.bankservice.entities.AccountBank;
 import com.c1736.bankservice.repository.IAccountBankRepository;
 import com.c1736.bankservice.service.IAccountBankService;
@@ -33,12 +36,14 @@ public class AccountBankService implements IAccountBankService {
     private final IAccountBankRequestMapper accountBankRequestMapper;
     private final IAccountBankResponseMapper accountBankResponseMapper;
     private final IUserFeignClient userFeignClient;
+    private final IMessagingFeignClient messagingFeignClient;
 
-    public AccountBankService(IAccountBankRepository accountBankRepository, IAccountBankRequestMapper accountBankRequestMapper, IAccountBankResponseMapper accountBankResponseMapper, IUserFeignClient userFeignClient) {
+    public AccountBankService(IAccountBankRepository accountBankRepository, IAccountBankRequestMapper accountBankRequestMapper, IAccountBankResponseMapper accountBankResponseMapper, IUserFeignClient userFeignClient, IMessagingFeignClient messagingFeignClient) {
         this.accountBankRepository = accountBankRepository;
         this.accountBankRequestMapper = accountBankRequestMapper;
         this.accountBankResponseMapper = accountBankResponseMapper;
         this.userFeignClient = userFeignClient;
+        this.messagingFeignClient = messagingFeignClient;
     }
 
     @Override
@@ -66,6 +71,9 @@ public class AccountBankService implements IAccountBankService {
 
         AccountBank accountBank = accountBankRequestMapper.toAccountBankRequest(accountBankRequestDto);
         accountBankRepository.save(accountBank);
+
+        MessagingDTO messageDto = new MessagingDTO(accountBankRequestDto.getEmail(), "CUENTA CREADA EXITOSAMENTE", Constants.NEW_ACCOUNT);
+        messagingFeignClient.sendEmail(messageDto);
     }
 
     @Override
