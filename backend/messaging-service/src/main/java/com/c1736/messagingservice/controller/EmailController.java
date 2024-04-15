@@ -14,13 +14,13 @@ public class EmailController {
     @Autowired
     IEmailService emailService;
 
-    @PostMapping("/sendEmail")
+    @PostMapping("sendEmail")
     public ResponseEntity<String> sendEmail(@RequestBody EmailDTO email) throws MessagingException {
         emailService.sendMail(email);
         return new ResponseEntity<>("Correo enviado", HttpStatus.OK);
     }
 
-    @PostMapping("/sendEmailAlertLogin/{mail}")
+    @PostMapping("sendEmailAlertLogin/{mail}")
     public ResponseEntity<String> sendEmailAlertLogin(@PathVariable String mail) throws MessagingException {
         emailService.sendEmailAlertLogin(mail);
         return new ResponseEntity<>("Correo enviado", HttpStatus.OK);
