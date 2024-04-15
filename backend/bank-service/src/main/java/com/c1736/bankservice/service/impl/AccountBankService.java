@@ -72,7 +72,7 @@ public class AccountBankService implements IAccountBankService {
         AccountBank accountBank = accountBankRequestMapper.toAccountBankRequest(accountBankRequestDto);
         accountBankRepository.save(accountBank);
 
-        MessagingDTO messageDto = new MessagingDTO(accountBankRequestDto.getEmail(), "Nueva Cuenta", Constants.NEW_ACCOUNT);
+        MessagingDTO messageDto = new MessagingDTO(accountBankRequestDto.getEmail(), "CUENTA CREADA EXITOSAMENTE", Constants.NEW_ACCOUNT);
         messagingFeignClient.sendEmail(messageDto);
     }
 

@@ -61,7 +61,7 @@ public class EmailServiceImpl implements IEmailService {
 
             Context context = new Context();
             context.setVariable("message", ALERT_LOGIN);
-            String contenidoHtml = templateEngine.process("email", context);
+            String contenidoHtml = templateEngine.process("emailAlerta", context);
 
             helper.setText(contenidoHtml, true);
 
