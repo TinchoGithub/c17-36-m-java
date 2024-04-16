@@ -3,7 +3,6 @@ package com.c1736.bankservice.controller;
 import com.c1736.bankservice.service.dto.response.AccountBankResponseDto;
 import com.c1736.bankservice.service.impl.AccountBankService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,13 +16,9 @@ import java.util.Optional;
 public class AdminController {
 
     private final AccountBankService accountBankService;
-    private final ClientController clientController;
-    private final CompanyController companyController;
 
-    public AdminController(AccountBankService accountBankService, ClientController clientController, CompanyController companyController) {
+    public AdminController(AccountBankService accountBankService) {
         this.accountBankService = accountBankService;
-        this.clientController = clientController;
-        this.companyController = companyController;
     }
 
     @GetMapping("/{id}")

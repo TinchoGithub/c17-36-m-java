@@ -10,10 +10,12 @@ import com.c1736.userservice.service.IUserService;
 import jakarta.transaction.Transactional;
 import com.c1736.userservice.service.exceptions.UserAlreadyExistsException;
 import com.c1736.userservice.service.exceptions.UserNotFoundException;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
+
+import static com.c1736.userservice.configuration.Constants.NEW_CLIENT;
+import static com.c1736.userservice.configuration.Constants.NEW_COMPANY;
 
 @Service
 @Transactional
@@ -48,7 +50,7 @@ public class UserServiceImpl implements IUserService {
         user.setPassword(authPasswordEncoderPort.encodePassword(user.getPassword()));
         userRepository.save(user);
 
-        MessagingDTO dto = new MessagingDTO(user.getEmail(), "CLIENTE CREADO EXITOSAMENTE", ConstantMessages.NEW_CLIENT);
+        MessagingDTO dto = new MessagingDTO(user.getEmail(), "CLIENTE CREADO EXITOSAMENTE", NEW_CLIENT);
         messagingFeignClient.sendEmail(dto);
 
     }
@@ -69,7 +71,7 @@ public class UserServiceImpl implements IUserService {
         user.setPassword(authPasswordEncoderPort.encodePassword(user.getPassword()));
         userRepository.save(user);
         // Mantiene el comentario
-        MessagingDTO messageDto = new MessagingDTO(user.getEmail(), "COMPAÑÍA CREADA EXITOSAMENTE", ConstantMessages.NEW_COMPANY);
+        MessagingDTO messageDto = new MessagingDTO(user.getEmail(), "COMPAÑÍA CREADA EXITOSAMENTE", NEW_COMPANY);
         messagingFeignClient.sendEmail(messageDto);
 
     }
