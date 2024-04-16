@@ -1,6 +1,6 @@
 <!-- Logo proyecto -->
 [![Banner](https://via.placeholder.com/)](https://github.com/No-Country/c14-22-ft-java-react)
-# Banca Digital
+# Grow Bank
 
 
 Función principal en el proceso....
@@ -42,7 +42,7 @@ Vistas en proceso
 
 <div style="display: flex; justify-content: space-around;">
   <img src="https://img.shields.io/badge/Figma-figma?style=for-the-badge&logo=figma&logoColor=white" alt="Figma" width="120" height="40">
-  <img src="https://img.shields.io/badge/Adobe_XD-470137?style=for-the-badge&logo=adobe-xd&logoColor=white" alt="Adobe XD" width="120" height="40">
+  <img src="https://img.shields.io/badge/Adobe-470137?style=for-the-badge&logo=adobe&logoColor=white" alt="Adobe" width="120" height="40">
 </div>
 
 ## Organización
@@ -69,7 +69,6 @@ En nuestro equipo, hemos adoptado un enfoque estructurado y colaborativo para or
 |--------------------|--------|----------|
 | Heinner Vega       | [![Github](https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white)](https://github.com/V11Playko) | [![Linkedin](https://img.shields.io/badge/linkedin-%230A66C2.svg?&style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/heinnervega11/) |
 | Martín Perez       | [![Github](https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white)](https://github.com/TinchoGithub) | [![Linkedin](https://img.shields.io/badge/linkedin-%230A66C2.svg?&style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/mart%C3%ADn-perez-902bb2199/) |
-| Nicolás Batistelli | [![Github](https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white)](https://github.com/NicolasBatistelli) | [![Linkedin](https://img.shields.io/badge/linkedin-%230A66C2.svg?&style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/nicolas-batistelli/) |
 | Fabian Manrique    | [![Github](https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white)](https://github.com/pegaso02) | [![Linkedin](https://img.shields.io/badge/linkedin-%230A66C2.svg?&style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/fabian-manrique870ba190/) |
 | Aldo Mamani             | [![Github](https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white)](https://github.com/Frozenthrone98) | [![Linkedin](https://img.shields.io/badge/linkedin-%230A66C2.svg?&style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/aldo-mamani-b24479184/) |
 
