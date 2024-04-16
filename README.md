@@ -12,7 +12,7 @@ Banca digital diseñada para satisfacer tus necesidades financieras de forma seg
 
 
 
-# <img src="./documentation/Images/logo-sin-texto.png" width="18px"> Acerca del proyecto
+# <img src="./documentation/Images/logo-sin-texto.png" width="30px"> Acerca del proyecto
 
 Grow Bank es una plataforma de banca digital que ofrece una solución completa para **usuarios individuales, empresas y administradores**. Con un enfoque en la seguridad y la conveniencia, Grow Bank permite a los usuarios acceder a sus cuentas desde cualquier dispositivo, realizar transferencias seguras y recibir alertas en tiempo real sobre actividades sospechosas y transacciones. Nuestra plataforma proporciona autenticación segura de usuarios, visualización de saldo y movimientos, así como transferencias bancarias en línea. Con Grow Bank, estamos comprometidos a brindar una experiencia bancaria digital excepcional, permitiendo a nuestros usuarios gestionar sus finanzas de manera eficiente y segura, en cualquier momento y desde cualquier lugar. **¡Únete a Grow Bank hoy mismo y descubre el futuro de la banca digital!.**
 
