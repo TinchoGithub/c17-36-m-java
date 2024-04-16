@@ -1,5 +1,7 @@
 <!-- Logo proyecto -->
+
 <img src="./documentation/Images/GrowBank-Banner.png" width="100%">
+
 
 
 ## Bienvenid@s a **Grow Bank**
@@ -12,7 +14,7 @@ Banca digital diseñada para satisfacer tus necesidades financieras de forma seg
 
 
 
-# <img src="./documentation/Images/logo-sin-texto.png" width="30px"> Acerca del proyecto
+## <img src="./documentation/Images/logo-sin-texto.png" width="30px"> Acerca del proyecto
 
 Grow Bank es una plataforma de banca digital que ofrece una solución completa para **usuarios individuales, empresas y administradores**. Con un enfoque en la seguridad y la conveniencia, Grow Bank permite a los usuarios acceder a sus cuentas desde cualquier dispositivo, realizar transferencias seguras y recibir alertas en tiempo real sobre actividades sospechosas y transacciones. Nuestra plataforma proporciona autenticación segura de usuarios, visualización de saldo y movimientos, así como transferencias bancarias en línea. Con Grow Bank, estamos comprometidos a brindar una experiencia bancaria digital excepcional, permitiendo a nuestros usuarios gestionar sus finanzas de manera eficiente y segura, en cualquier momento y desde cualquier lugar. **¡Únete a Grow Bank hoy mismo y descubre el futuro de la banca digital!.**
 
@@ -20,9 +22,9 @@ Grow Bank es una plataforma de banca digital que ofrece una solución completa p
 
 Vistas en proceso
 
-# Tecnologías Usadas
+## Tecnologías Usadas
 
-## Front-End
+### Front-End
 
 <div style="display: flex; justify-content: space-around;">
   <img src="https://img.shields.io/static/v1?style=for-the-badge&message=React&color=222222&logo=React&logoColor=61DAFB&label=" alt="React" width="120" height="40">
@@ -35,12 +37,13 @@ Vistas en proceso
  
 </div>
 
-## Back-End
+### Back-End
 
 <div style="display: flex; justify-content: space-around;">
   <img src="https://img.shields.io/badge/Java-%2523ED8B00.svg?style=for-the-badge&logo=oracle&logoColor=red&color=white" alt="Java" width="120" height="40">
   <img src="https://img.shields.io/badge/spring-%236DB33F.svg?style=for-the-badge&logo=spring&logoColor=white" alt="Spring" width="120" height="40">
   <img src="https://img.shields.io/badge/Hibernate-59666C?style=for-the-badge&logo=Hibernate&logoColor=white" alt="Hibernate" width="120" height="40">
+  <img src="https://img.shields.io/badge/Gradle-02303A?style=for-the-badge&logo=Gradle&logoColor=white" alt="Gradle" width="120" height="40">
   <img src="https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=JSON%20web%20tokens" alt="JWT" width="120" height="40">
   <img src="https://img.shields.io/static/v1?style=for-the-badge&message=PostgreSQL&color=4169E1&logo=PostgreSQL&logoColor=FFFFFF&label=" alt="PostgreSQL" width="120" height="40">
   <img src="https://img.shields.io/static/v1?style=for-the-badge&message=JavaMail&color=red&logo=Oracle&logoColor=white&label=" alt="JavaMail" width="120" height="40">
@@ -48,13 +51,13 @@ Vistas en proceso
 
 </div>
 
-## UX-UI
+### UX-UI
 
 <div style="display: flex; justify-content: space-around;">
   <img src="https://img.shields.io/badge/Figma-figma?style=for-the-badge&logo=figma&logoColor=white" alt="Figma" width="120" height="40">
 </div>
 
-# Organización
+## Organización
 
 En nuestro equipo, hemos adoptado un enfoque estructurado y colaborativo para organizar y gestionar nuestras tareas, lo que nos permite trabajar de manera eficiente y mantener un alto nivel de productividad. Nuestra metodología se basa en la distribución de responsabilidades en tres equipos principales: Frontend, Backend y UX/UI.
 
@@ -65,7 +68,7 @@ En nuestro equipo, hemos adoptado un enfoque estructurado y colaborativo para or
   <img src="https://img.icons8.com/color/480/discord-new-logo.png" alt="Discord" width="80" height="80">
 </div>
 
-# Team - [C17-36-M-JAVA]
+## Team - [C17-36-M-JAVA]
 
 ### ⚛️ Front-End
 | Nombre        | Github | Linkedin |
@@ -88,7 +91,7 @@ En nuestro equipo, hemos adoptado un enfoque estructurado y colaborativo para or
 | Cynthia Olocco   | [![Github](https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white)](https://github.com/CynOlocco) | [![Linkedin](https://img.shields.io/badge/linkedin-%230A66C2.svg?&style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/cynthia-olocco-141081295/) |
 
 
-# Video
+## Video
 
 [![Video](https://via.placeholder.com/)](https://www.youtube.com/)
 
@@ -99,3 +102,5 @@ En nuestro equipo, hemos adoptado un enfoque estructurado y colaborativo para or
     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsukYB3HL90LSwYv_RIR2O2OlCV8Sbkx2eNHv8nRvOu8L16FxLQ0nPzY02wQ_BJOfQZw&usqp=CAU" width="200">
   </a>
 </div>
+<img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=00adef&height=120&section=footer"/>
+
