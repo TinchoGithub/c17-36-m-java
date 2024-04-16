@@ -1,5 +1,6 @@
 <!-- Logo proyecto -->
-![Banner](documentation/images/GrowBank-Banner.png)
+<img src="./documentation/Images/GrowBank-Banner.png" width="100%">
+
 
 ## Bienvenid@s a **Grow Bank**
 Banca digital diseñada para satisfacer tus necesidades financieras de forma segura y conveniente. Accede a tu cuenta desde cualquier dispositivo, realiza transferencias seguras y recibe alertas instantáneas para mantener tus finanzas protegidas y optimizadas.
@@ -71,7 +72,7 @@ En nuestro equipo, hemos adoptado un enfoque estructurado y colaborativo para or
 |---------------|--------|----------|
 | Isis Daza     | [![Github](https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white)](https://github.com/Isis98) | [![Linkedin](https://img.shields.io/badge/linkedin-%230A66C2.svg?&style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/isis-marina-daza-peña) |
 | Samuel Aquino | [![Github](https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white)](https://github.com/samuelengineerdev) | [![Linkedin](https://img.shields.io/badge/linkedin-%230A66C2.svg?&style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/samuel-jose-aquino-andujar-76a165223/) |
-| Duvan Rivera  | [![Github](https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white)](https://github.com/DuvanR11) | [![Linkedin](https://img.shields.io/badge/linkedin-%230A66C2.svg?&style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/duvanriveram/) |
+
 ### ⚛️ Back-End
 | Nombre             | Github | Linkedin |
 |--------------------|--------|----------|
