@@ -35,14 +35,12 @@ public class AccountBankService implements IAccountBankService {
     private final IAccountBankRepository accountBankRepository;
     private final IAccountBankRequestMapper accountBankRequestMapper;
     private final IAccountBankResponseMapper accountBankResponseMapper;
-    private final IUserFeignClient userFeignClient;
     private final IMessagingFeignClient messagingFeignClient;
 
-    public AccountBankService(IAccountBankRepository accountBankRepository, IAccountBankRequestMapper accountBankRequestMapper, IAccountBankResponseMapper accountBankResponseMapper, IUserFeignClient userFeignClient, IMessagingFeignClient messagingFeignClient) {
+    public AccountBankService(IAccountBankRepository accountBankRepository, IAccountBankRequestMapper accountBankRequestMapper, IAccountBankResponseMapper accountBankResponseMapper, IMessagingFeignClient messagingFeignClient) {
         this.accountBankRepository = accountBankRepository;
         this.accountBankRequestMapper = accountBankRequestMapper;
         this.accountBankResponseMapper = accountBankResponseMapper;
-        this.userFeignClient = userFeignClient;
         this.messagingFeignClient = messagingFeignClient;
     }
 

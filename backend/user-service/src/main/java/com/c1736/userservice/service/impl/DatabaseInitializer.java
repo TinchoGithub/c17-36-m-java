@@ -20,6 +20,10 @@ public class DatabaseInitializer {
         this.roleRepository = roleRepository;
     }
 
+    /**
+     * Método que se ejecuta después de la construcción del bean para inicializar
+     * roles y el usuario admin en la base de datos.
+     */
     @PostConstruct
     public void initialize() {
         initializeRoles();
@@ -32,6 +36,12 @@ public class DatabaseInitializer {
         createRoleIfNotExists("ROLE_CLIENT", "ROLE_CLIENT");
     }
 
+    /**
+     * Crea un nuevo rol si no existe en la base de datos.
+     *
+     * @param name        Nombre del rol.
+     * @param description Descripción del rol.
+     */
     private void createRoleIfNotExists(String name, String description) {
         Role role = roleRepository.findByName(name);
         if (role == null) {
