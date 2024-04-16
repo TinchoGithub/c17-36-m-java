@@ -20,6 +20,13 @@ import java.util.stream.Collectors;
 public class AuthHandler implements IAuthHandler {
     private final JwtUtils jwtUtils;
     private final AuthenticationManager authenticationManager;
+
+    /**
+     * Login user - Se accede mediante el email y password del usuario que hayas creado
+     *
+     * @param loginRequestDto Login credentials
+     * @return JwtTokenResponseDto
+     */
     @Override
     public JwtTokenResponseDto loginUser(LoginRequestDto loginRequestDto) {
         Authentication authentication = authenticationManager.authenticate(
