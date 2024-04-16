@@ -32,12 +32,6 @@ Vistas en proceso
   <img src="https://img.shields.io/static/v1?style=for-the-badge&message=React+Hook+Form&color=61DAFB&logo=React&logoColor=white&label=" alt="React Hook Form" width="200" height="40">
   <img src="https://img.shields.io/static/v1?style=for-the-badge&message=Font+Awesome&color=339AF0&logo=Font+Awesome&logoColor=white&label=" alt="Font Awesome" width="160" height="40">
  
-
-  
-
-
-
-
 </div>
 
 ## Back-End
@@ -51,21 +45,12 @@ Vistas en proceso
   <img src="https://img.shields.io/static/v1?style=for-the-badge&message=JavaMail&color=red&logo=Oracle&logoColor=white&label=" alt="JavaMail" width="120" height="40">
   <img src="https://img.shields.io/static/v1?style=for-the-badge&message=Thymeleaf&color=005F0F&logo=Thymeleaf&logoColor=white&label=" alt="Thymeleaf" width="120" height="40">
 
-  
-
-
-
-
-
 </div>
 
 ## UX-UI
 
 <div style="display: flex; justify-content: space-around;">
   <img src="https://img.shields.io/badge/Figma-figma?style=for-the-badge&logo=figma&logoColor=white" alt="Figma" width="120" height="40">
-  
-  
-  
 </div>
 
 # Organización
@@ -91,7 +76,7 @@ En nuestro equipo, hemos adoptado un enfoque estructurado y colaborativo para or
 | Nombre             | Github | Linkedin |
 |--------------------|--------|----------|
 | Heinner Vega       | [![Github](https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white)](https://github.com/V11Playko) | [![Linkedin](https://img.shields.io/badge/linkedin-%230A66C2.svg?&style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/heinnervega11/) |
-| Martín Perez       | [![Github](https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white)](https://github.com/TinchoGithub) | [![Linkedin](https://img.shields.io/badge/linkedin-%230A66C2.svg?&style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/mart%C3%ADn-perez-902bb2199/)
+| Martín Perez       | [![Github](https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white)](https://github.com/TinchoGithub) | [![Linkedin](https://img.shields.io/badge/linkedin-%230A66C2.svg?&style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/mart%C3%ADn-perez-902bb2199/) |
 | Fabian Manrique    | [![Github](https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white)](https://github.com/pegaso02) | [![Linkedin](https://img.shields.io/badge/linkedin-%230A66C2.svg?&style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/fabian-manrique870ba190/) |
 
 
