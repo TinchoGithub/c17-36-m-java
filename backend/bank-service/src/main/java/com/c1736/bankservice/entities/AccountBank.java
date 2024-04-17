@@ -17,6 +17,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 @Entity
 @Table(name = "accountBank")
@@ -39,7 +40,7 @@ public class AccountBank implements Serializable {
     @Column(name="accountType")
     private AccountTypeEnum accountType;
 
-    private String balance;
+    private BigDecimal balance; // Modificado
 
     @NotNull(message = "El tipo de moneda es obligatorio")
     @Enumerated(EnumType.STRING)

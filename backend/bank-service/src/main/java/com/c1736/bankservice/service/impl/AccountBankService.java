@@ -1,9 +1,7 @@
 package com.c1736.bankservice.service.impl;
 
 import com.c1736.bankservice.client.IMessagingFeignClient;
-import com.c1736.bankservice.client.IUserFeignClient;
 import com.c1736.bankservice.client.dto.MessagingDTO;
-import com.c1736.bankservice.client.dto.UserDTO;
 import com.c1736.bankservice.configuration.Constants;
 import com.c1736.bankservice.entities.AccountBank;
 import com.c1736.bankservice.repository.IAccountBankRepository;
@@ -12,19 +10,13 @@ import com.c1736.bankservice.service.dto.request.AccountBankRequestDto;
 import com.c1736.bankservice.service.dto.request.UpdateAccountBankRequestDto;
 import com.c1736.bankservice.service.dto.response.AccountBankResponseDto;
 import com.c1736.bankservice.service.exceptions.AccountBankNotFound;
-import com.c1736.bankservice.service.exceptions.NoDataFound;
 import com.c1736.bankservice.service.exceptions.UnauthorizedException;
-import com.c1736.bankservice.service.exceptions.UserNotFound;
 import com.c1736.bankservice.service.mapper.request.IAccountBankRequestMapper;
 import com.c1736.bankservice.service.mapper.response.IAccountBankResponseMapper;
 import jakarta.transaction.Transactional;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
-import java.math.BigDecimal;
-import java.text.NumberFormat;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -46,7 +38,7 @@ public class AccountBankService implements IAccountBankService {
 
     @Override
     public AccountBankResponseDto getAccountBank(Long id) {
-        AccountBank account = accountBankRepository.findById(id).orElseThrow(AccountBankNotFound::new);
+        AccountBank account = accountBankRepository.findById(id).orElseThrow(() -> new AccountBankNotFound("Cuenta de origen no encontrada"));
         return accountBankResponseMapper.toResponseAccountBank(account);
     }
 
@@ -54,7 +46,7 @@ public class AccountBankService implements IAccountBankService {
     public List<AccountBankResponseDto> getAllAccountBank() {
         List<AccountBank> accountBanks = accountBankRepository.findAll();
         if (accountBanks.isEmpty()) {
-            throw new AccountBankNotFound();
+            throw new AccountBankNotFound("Cuenta de origen no encontrada");
         }
         return accountBanks.stream()
                 .map(accountBankResponseMapper::toResponseAccountBank)
@@ -90,7 +82,7 @@ public class AccountBankService implements IAccountBankService {
             accountBank.setTypeCoin(updateAccountBankRequestDto.getTypeCoin());
             accountBankRepository.save(accountBank);
         } else {
-            throw new AccountBankNotFound();
+            throw new AccountBankNotFound("Cuenta de origen no encontrada");
         }
     }
 
@@ -99,7 +91,7 @@ public class AccountBankService implements IAccountBankService {
         try {
             accountBankRepository.deleteById(id);
         } catch (EmptyResultDataAccessException e) {
-            throw new AccountBankNotFound();
+            throw new AccountBankNotFound("Cuenta de origen no encontrada");
         }
     }
 }
