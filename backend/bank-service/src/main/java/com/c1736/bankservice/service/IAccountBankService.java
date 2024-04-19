@@ -1,6 +1,7 @@
 package com.c1736.bankservice.service;
 
 import com.c1736.bankservice.service.dto.request.AccountBankRequestDto;
+import com.c1736.bankservice.service.dto.request.TransferRequestDto;
 import com.c1736.bankservice.service.dto.request.UpdateAccountBankRequestDto;
 import com.c1736.bankservice.service.dto.response.AccountBankResponseDto;
 
@@ -12,4 +13,5 @@ public interface IAccountBankService {
     void saveAccount(AccountBankRequestDto accountBankRequestDto);
     void updateAccount(UpdateAccountBankRequestDto updateAccountBankRequestDto);
     void deleteAccountBank(Long id);
+    public void Transfer(TransferRequestDto transferRequestDto);
 }

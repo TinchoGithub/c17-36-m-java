@@ -1,6 +1,6 @@
 package com.c1736.bankservice.controller;
 
-import com.c1736.bankservice.service.AccountBankService;
+import com.c1736.bankservice.service.IAccountBankService;
 import com.c1736.bankservice.service.dto.request.TransferRequestDto;
 import com.c1736.bankservice.service.dto.response.TransferResponseDto;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/v1/transfers")
 public class AccountTransferController {
 
-    private final com.c1736.bankservice.service.AccountBankService accountBankService;
+    private final com.c1736.bankservice.service.IAccountBankService accountBankService;
     @Autowired
-    public AccountTransferController(AccountBankService accountBankService){
+    public AccountTransferController(IAccountBankService accountBankService){
         this.accountBankService = accountBankService;
     }
 
