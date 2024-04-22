@@ -43,11 +43,6 @@ public class ClientController {
 
     @PutMapping("/updateAccount/{id}")
     public ResponseEntity<Void> updateAccount(@PathVariable Long id, @RequestBody UpdateAccountBankRequestDto updateAccountBankRequestDto) {
-        UserDTO user = userFeignClient.getUserClient(updateAccountBankRequestDto.getEmail());
-
-        if (user == null) throw new UserNotFound();
-        if (!user.getRole().getName().equals("ROLE_CLIENT")) throw new UnauthorizedException();
-
         updateAccountBankRequestDto.setId(id);
         accountBankService.updateAccount(updateAccountBankRequestDto);
         return ResponseEntity.status(HttpStatus.OK).build();
