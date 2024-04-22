@@ -30,4 +30,6 @@ public class Constants {
             "Atentamente,\n" +
             "Grow Bank - Tu Banca Digital\n" +
             "Equipo de Servicio al Cliente";
+
+    public static final String NEW_TRANSFER = "¡Transferencia completada exitosamente! \n";
 }
