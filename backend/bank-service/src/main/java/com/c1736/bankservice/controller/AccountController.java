@@ -1,7 +1,9 @@
 package com.c1736.bankservice.controller;
 
 import com.c1736.bankservice.service.IAccountBankService;
+import com.c1736.bankservice.service.dto.request.DepositRequestDto;
 import com.c1736.bankservice.service.dto.request.TransferRequestDto;
+import com.c1736.bankservice.service.dto.response.DepositResponseDto;
 import com.c1736.bankservice.service.dto.response.TransferResponseDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -24,6 +26,16 @@ public class AccountTransferController {
             return ResponseEntity.ok(new TransferResponseDto("Transferencia realizada con éxito."));
         } catch (Exception e){
             return ResponseEntity.badRequest().body(new TransferResponseDto("Error durante la transferencia: " + e.getMessage()));
+        }
+    }
+
+    @PostMapping("/Deposit")
+    public ResponseEntity<DepositResponseDto> Deposit(DepositRequestDto depositRequestDto){
+        try {
+            accountBankService.deposit(depositRequestDto);
+            return ResponseEntity.ok(new DepositResponseDto("Deposito realizado con éxito"));
+        } catch (Exception ex){
+            return ResponseEntity.badRequest().body(new DepositResponseDto("Error durante el deposito: "+ex.getMessage()));
         }
     }
 
