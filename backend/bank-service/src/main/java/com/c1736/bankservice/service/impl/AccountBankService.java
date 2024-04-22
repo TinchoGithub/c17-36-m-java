@@ -9,6 +9,7 @@ import com.c1736.bankservice.repository.AccountTransferRepository;
 import com.c1736.bankservice.repository.IAccountBankRepository;
 import com.c1736.bankservice.service.IAccountBankService;
 import com.c1736.bankservice.service.dto.request.AccountBankRequestDto;
+import com.c1736.bankservice.service.dto.request.DepositRequestDto;
 import com.c1736.bankservice.service.dto.request.TransferRequestDto;
 import com.c1736.bankservice.service.dto.request.UpdateAccountBankRequestDto;
 import com.c1736.bankservice.service.dto.response.AccountBankResponseDto;
@@ -20,6 +21,7 @@ import jakarta.transaction.Transactional;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
@@ -129,6 +131,19 @@ public class AccountBankService implements IAccountBankService {
 
         MessagingDTO messageDto = new MessagingDTO(fromAccount.getEmail(), "TRANSFERENCIA EXITOSA", Constants.NEW_TRANSFER+"Monto: "+transferRequestDto.getAmount()+"\n Destino: "+ toAccount.getEmail());
         messagingFeignClient.sendEmail(messageDto);
+
+    }
+
+    @Override
+    public void deposit(DepositRequestDto depositRequestDto) {
+        AccountBank toAccount = accountBankRepository.findById(depositRequestDto.getIdAccount())
+                .orElseThrow(AccountBankNotFound::new);
+        if(depositRequestDto.getAmount().compareTo(BigDecimal.ZERO)<0){
+            throw new IllegalArgumentException("Ingresa un valor correcto");
+        }
+        toAccount.setBalance(toAccount.getBalance().add(depositRequestDto.getAmount()));
+        accountBankRepository.save(toAccount);
+
 
     }
 

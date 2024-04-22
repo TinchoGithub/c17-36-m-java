@@ -10,12 +10,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/v1/transfers")
-public class AccountTransferController {
+@RequestMapping("/api/v1/accounts")
+public class AccountController {
 
     private final com.c1736.bankservice.service.IAccountBankService accountBankService;
     @Autowired
-    public AccountTransferController(IAccountBankService accountBankService){
+    public AccountController(IAccountBankService accountBankService){
         this.accountBankService = accountBankService;
     }
 
