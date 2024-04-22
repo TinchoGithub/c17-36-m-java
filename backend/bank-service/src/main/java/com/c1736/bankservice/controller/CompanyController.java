@@ -42,11 +42,6 @@ public class CompanyController {
 
     @PutMapping("/updateAccount/{id}")
     public ResponseEntity<Void> updateAccount(@PathVariable Long id, @RequestBody UpdateAccountBankRequestDto updateAccountBankRequestDto) {
-        UserDTO user = userFeignClient.getUserCompany(updateAccountBankRequestDto.getEmail());
-
-        if (user == null) throw new UserNotFound();
-        if (!user.getRole().getName().equals("ROLE_COMPANY")) throw new UnauthorizedException();
-
         updateAccountBankRequestDto.setId(id);
         accountBankService.updateAccount(updateAccountBankRequestDto);
         return ResponseEntity.status(HttpStatus.OK).build();
