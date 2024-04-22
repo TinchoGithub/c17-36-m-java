@@ -1,6 +1,7 @@
 package com.c1736.userservice.client;
 
 import com.c1736.userservice.client.dto.BankDTO;
+import com.c1736.userservice.client.dto.TransferDTO;
 import com.c1736.userservice.client.interceptor.FeignClientInterceptor;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
@@ -33,4 +34,6 @@ public interface IBankFeignClient {
     @PostMapping("company/account")
     public ResponseEntity<Void> saveAccountCompany(@RequestBody BankDTO accountBankRequestDto);
 
+    @PostMapping("transfers/transfer")
+    public ResponseEntity<TransferDTO> transfer(@RequestBody TransferDTO transferRequestDto);
 }

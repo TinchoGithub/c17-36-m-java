@@ -22,7 +22,7 @@ import java.util.regex.Pattern;
 @Component
 public class JwtAuthorizationFilter extends OncePerRequestFilter {
 
-    private List<String> excludedPrefixes = Arrays.asList("/swagger-ui/**", "/v3/api-docs/**", "/api/v1/sendEmailAlertLogin/**");
+    private List<String> excludedPrefixes = Arrays.asList("/swagger-ui/**", "/v3/api-docs/**", "/api/v1/sendEmailAlertLogin/**", "/api/v1/sendEmail");
 
     private AntPathMatcher pathMatcher = new AntPathMatcher();
 

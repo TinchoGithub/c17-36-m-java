@@ -62,7 +62,7 @@ public class AccountBankService implements IAccountBankService {
     @Override
     public void saveAccount(AccountBankRequestDto accountBankRequestDto) {
         // Establecer el saldo en cero y darle formato adecuado
-        String balanceFormat = "$0";
+        String balanceFormat = "0";
         accountBankRequestDto.setBalance(balanceFormat);
 
         AccountBank accountBank = accountBankRequestMapper.toAccountBankRequest(accountBankRequestDto);
@@ -126,6 +126,9 @@ public class AccountBankService implements IAccountBankService {
         accountTransferRepository.save(transfer);
         accountBankRepository.save(fromAccount);
         accountBankRepository.save(toAccount);
+
+        MessagingDTO messageDto = new MessagingDTO(fromAccount.getEmail(), "TRANSFERENCIA EXITOSA", Constants.NEW_TRANSFER+"Monto: "+transferRequestDto.getAmount()+"\n Destino: "+ toAccount.getEmail());
+        messagingFeignClient.sendEmail(messageDto);
 
     }
 
