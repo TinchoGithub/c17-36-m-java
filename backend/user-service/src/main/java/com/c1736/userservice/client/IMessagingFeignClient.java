@@ -12,16 +12,5 @@ public interface IMessagingFeignClient {
 
     @PostMapping("/sendEmail")
     public ResponseEntity<String> sendEmail(@RequestBody MessagingDTO email);
-    /*
-    @PostMapping("admin/sendEmail")
-    public ResponseEntity<String> sendEmail(@RequestBody MessagingDTO email);
-
-    @PostMapping("client/sendEmail")
-    public ResponseEntity<String> sendEmailClient(@RequestBody MessagingDTO email);
-
-    @PostMapping("company/sendEmail")
-    public ResponseEntity<String> sendEmailCompany(@RequestBody MessagingDTO email);
-
-     */
 
 }

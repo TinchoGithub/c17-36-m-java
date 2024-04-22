@@ -2,6 +2,7 @@ package com.c1736.userservice.service.impl;
 
 import com.c1736.userservice.client.IMessagingFeignClient;
 import com.c1736.userservice.client.dto.MessagingDTO;
+import com.c1736.userservice.configuration.Constants;
 import com.c1736.userservice.entities.User;
 import com.c1736.userservice.repository.IRoleRepository;
 import com.c1736.userservice.repository.IUserRepository;
