@@ -9,12 +9,12 @@ export default withMT({
   ],
   theme: {
     extend: {
-      // colors: {
-      //   'example_color': '#fff',
-      // },
-      // fontFamily: {
-      //   'example_font_family': ['font', 'font'],
-      // },
+      colors: {
+        'example_color': '#00ACEC',
+      },
+      fontFamily: {
+        'inter': ['Inter', 'sans-serif'],
+      },
     },
   },
   plugins: [],
