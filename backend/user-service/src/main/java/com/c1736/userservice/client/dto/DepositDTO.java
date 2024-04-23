@@ -7,14 +7,12 @@ import lombok.Setter;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
+@AllArgsConstructor
 @Getter
 @Setter
-@AllArgsConstructor
-public class TransferDTO {
+public class DepositDTO {
 
-    private BankDTO fromAccount;
-    private BankDTO toAccount;
+    private Long idAccount;
     private BigDecimal amount;
-    private String Description;
-    private LocalDateTime transferData;
+    private LocalDateTime transactionDate;
 }

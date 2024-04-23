@@ -141,9 +141,12 @@ public class AccountBankService implements IAccountBankService {
         if(depositRequestDto.getAmount().compareTo(BigDecimal.ZERO)<0){
             throw new IllegalArgumentException("Ingresa un valor correcto");
         }
+
         toAccount.setBalance(toAccount.getBalance().add(depositRequestDto.getAmount()));
         accountBankRepository.save(toAccount);
 
+        MessagingDTO messagingDTO = new MessagingDTO(toAccount.getEmail(), "DEPOSITO EXITOSO", Constants.NEW_DEPOSIT+" Monto: "+ depositRequestDto.getAmount());
+        messagingFeignClient.sendEmail(messagingDTO);
 
     }
 
