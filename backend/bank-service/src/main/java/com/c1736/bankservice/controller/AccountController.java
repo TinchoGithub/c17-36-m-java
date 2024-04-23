@@ -29,8 +29,8 @@ public class AccountController {
         }
     }
 
-    @PostMapping("/Deposit")
-    public ResponseEntity<DepositResponseDto> Deposit(DepositRequestDto depositRequestDto){
+    @PostMapping("/deposit")
+    public ResponseEntity<DepositResponseDto> Deposit(@RequestBody DepositRequestDto depositRequestDto){
         try {
             accountBankService.deposit(depositRequestDto);
             return ResponseEntity.ok(new DepositResponseDto("Deposito realizado con éxito"));
