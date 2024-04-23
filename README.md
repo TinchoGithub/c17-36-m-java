@@ -93,7 +93,7 @@ En nuestro equipo, hemos adoptado un enfoque estructurado y colaborativo para or
 
 ## Video
 
-[![Video](https://via.placeholder.com/)](https://www.youtube.com/)
+[![Video](https://via.placeholder.com/)](https://youtu.be/pjjVxhPAPMQ)
 
 ## Agradecimientos
 
