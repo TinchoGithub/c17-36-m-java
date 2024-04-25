@@ -10,7 +10,7 @@ services:
     environment:
       - DATABASE_URL=jdbc:postgresql://user-service-db:5432/user-service
       - DATABASE_USER=postgres
-      - DATABASE_PASSWORD=komodor11
+      - DATABASE_PASSWORD=admin123
     depends_on:
       - user-service-db
     volumes:
@@ -25,7 +25,7 @@ services:
     environment:
       - DATABASE_URL=jdbc:postgresql://bank-service-db:5433/bank-service
       - DATABASE_USER=postgres
-      - DATABASE_PASSWORD=komodor11
+      - DATABASE_PASSWORD=admin123
     depends_on:
       - bank-service-db
     volumes:
@@ -46,7 +46,7 @@ services:
     environment:
       POSTGRES_DB: user-service
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: komodor11
+      POSTGRES_PASSWORD: admin123
     volumes:
       - user-service-data:/var/lib/postgresql/data
 
@@ -58,7 +58,7 @@ services:
     environment:
       POSTGRES_DB: bank-service
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: komodor11
+      POSTGRES_PASSWORD: admin123
     volumes:
       - bank-service-data:/var/lib/postgresql/data
 
