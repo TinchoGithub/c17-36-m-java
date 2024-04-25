@@ -51,8 +51,8 @@ public class UserServiceImpl implements IUserService {
         user.setPassword(authPasswordEncoderPort.encodePassword(user.getPassword()));
         userRepository.save(user);
 
-        MessagingDTO dto = new MessagingDTO(user.getEmail(), "CLIENTE CREADO EXITOSAMENTE", NEW_CLIENT);
-        messagingFeignClient.sendEmail(dto);
+//        MessagingDTO dto = new MessagingDTO(user.getEmail(), "CLIENTE CREADO EXITOSAMENTE", NEW_CLIENT);
+//        messagingFeignClient.sendEmail(dto);
 
     }
 
@@ -72,8 +72,8 @@ public class UserServiceImpl implements IUserService {
         user.setPassword(authPasswordEncoderPort.encodePassword(user.getPassword()));
         userRepository.save(user);
         // Mantiene el comentario
-        MessagingDTO messageDto = new MessagingDTO(user.getEmail(), "COMPAÑÍA CREADA EXITOSAMENTE", NEW_COMPANY);
-        messagingFeignClient.sendEmail(messageDto);
+//        MessagingDTO messageDto = new MessagingDTO(user.getEmail(), "COMPAÑÍA CREADA EXITOSAMENTE", NEW_COMPANY);
+//        messagingFeignClient.sendEmail(messageDto);
 
     }
 

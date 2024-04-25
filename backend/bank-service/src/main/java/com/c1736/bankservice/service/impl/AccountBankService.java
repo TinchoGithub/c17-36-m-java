@@ -70,8 +70,8 @@ public class AccountBankService implements IAccountBankService {
         AccountBank accountBank = accountBankRequestMapper.toAccountBankRequest(accountBankRequestDto);
         accountBankRepository.save(accountBank);
 
-        MessagingDTO messageDto = new MessagingDTO(accountBankRequestDto.getEmail(), "CUENTA CREADA EXITOSAMENTE", Constants.NEW_ACCOUNT);
-        messagingFeignClient.sendEmail(messageDto);
+//        MessagingDTO messageDto = new MessagingDTO(accountBankRequestDto.getEmail(), "CUENTA CREADA EXITOSAMENTE", Constants.NEW_ACCOUNT);
+//        messagingFeignClient.sendEmail(messageDto);
     }
 
     @Override
@@ -129,8 +129,8 @@ public class AccountBankService implements IAccountBankService {
         accountBankRepository.save(fromAccount);
         accountBankRepository.save(toAccount);
 
-        MessagingDTO messageDto = new MessagingDTO(fromAccount.getEmail(), "TRANSFERENCIA EXITOSA", Constants.NEW_TRANSFER+"Monto: "+transferRequestDto.getAmount()+"\n Destino: "+ toAccount.getEmail());
-        messagingFeignClient.sendEmail(messageDto);
+//        MessagingDTO messageDto = new MessagingDTO(fromAccount.getEmail(), "TRANSFERENCIA EXITOSA", Constants.NEW_TRANSFER+"Monto: "+transferRequestDto.getAmount()+"\n Destino: "+ toAccount.getEmail());
+//        messagingFeignClient.sendEmail(messageDto);
 
     }
 
@@ -145,8 +145,8 @@ public class AccountBankService implements IAccountBankService {
         toAccount.setBalance(toAccount.getBalance().add(depositRequestDto.getAmount()));
         accountBankRepository.save(toAccount);
 
-        MessagingDTO messagingDTO = new MessagingDTO(toAccount.getEmail(), "DEPOSITO EXITOSO", Constants.NEW_DEPOSIT+" Monto: "+ depositRequestDto.getAmount());
-        messagingFeignClient.sendEmail(messagingDTO);
+//        MessagingDTO messagingDTO = new MessagingDTO(toAccount.getEmail(), "DEPOSITO EXITOSO", Constants.NEW_DEPOSIT+" Monto: "+ depositRequestDto.getAmount());
+//        messagingFeignClient.sendEmail(messagingDTO);
 
     }
 

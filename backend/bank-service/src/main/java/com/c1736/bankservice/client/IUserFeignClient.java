@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
-@FeignClient(name = "user-service", url = "localhost:8091/api/v1/", configuration = FeignClientInterceptor.class)
+@FeignClient(name = "user-service", url = "http://user-service:8091/api/v1/", configuration = FeignClientInterceptor.class)
 public interface IUserFeignClient {
 
     @GetMapping("admin/findUser/{id}")

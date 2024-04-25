@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@FeignClient(name = "bank-service", url = "localhost:8092/api/v1/", configuration = FeignClientInterceptor.class)
+@FeignClient(name = "bank-service", url = "http://bank-service:8092/api/v1/", configuration = FeignClientInterceptor.class)
 public interface IBankFeignClient {
 
     @GetMapping("admin/{id}")

@@ -7,8 +7,8 @@ spring:
     name: bank-service
   datasource:
     url: jdbc:postgresql://bank-service-db:5432/bank-service
-    username: ${USER}
-    password: ${PASSWORD}
+    username: postgres
+    password: admin123
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
