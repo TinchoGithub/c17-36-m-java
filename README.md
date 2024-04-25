@@ -102,14 +102,15 @@ En nuestro equipo, hemos adoptado un enfoque estructurado y colaborativo para or
 
 ## Video
 
+
 <a href="https://www.youtube.com/watch?v=pjjVxhPAPMQ"><img src="./documentation/Images/SOMOS GROW BANK 0-8 screenshot.png" width="100%"></a>
+
 
 ## Agradecimientos
 
-<div align='center'>
+<div>
   <a href="https://www.nocountry.tech/" target="_blank">
     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsukYB3HL90LSwYv_RIR2O2OlCV8Sbkx2eNHv8nRvOu8L16FxLQ0nPzY02wQ_BJOfQZw&usqp=CAU" width="200">
   </a>
 </div>
 <img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=00adef&height=120&section=footer"/>
-

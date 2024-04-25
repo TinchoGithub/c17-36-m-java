@@ -63,5 +63,5 @@ services:
       - bank-service-data:/var/lib/postgresql/data
 
 volumes:
-  bank-service-data:
   user-service-data:
+  bank-service-data:
