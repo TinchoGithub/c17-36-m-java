@@ -20,7 +20,10 @@ Grow Bank es una plataforma de banca digital que ofrece una solución completa p
 
 ## VISTAS
 
-Vistas en proceso
+<img src="./documentation/Images/vista-1.jpg" width="100%">
+<img src="./documentation/Images/vista-2.jpg" width="100%">
+<img src="./documentation/Images/vista-3.jpg" width="100%">
+<img src="./documentation/Images/vista-4.jpg" width="100%">
 
 ## Tecnologías Usadas
 
@@ -48,7 +51,13 @@ Vistas en proceso
   <img src="https://img.shields.io/static/v1?style=for-the-badge&message=PostgreSQL&color=4169E1&logo=PostgreSQL&logoColor=FFFFFF&label=" alt="PostgreSQL" width="120" height="40">
   <img src="https://img.shields.io/static/v1?style=for-the-badge&message=JavaMail&color=red&logo=Oracle&logoColor=white&label=" alt="JavaMail" width="120" height="40">
   <img src="https://img.shields.io/static/v1?style=for-the-badge&message=Thymeleaf&color=005F0F&logo=Thymeleaf&logoColor=white&label=" alt="Thymeleaf" width="120" height="40">
+</div>
 
+### Deploy 🚀
+
+<div style="display: flex; justify-content: space-around;">
+  <img src="https://img.shields.io/badge/Docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white" alt="Docker" width="120" height="40">
+   <img src="https://img.shields.io/badge/Railway-%236933FF.svg?style=for-the-badge&logo=railway&logoColor=white" alt="Railway" width="120" height="40">
 </div>
 
 ### UX-UI
@@ -93,7 +102,7 @@ En nuestro equipo, hemos adoptado un enfoque estructurado y colaborativo para or
 
 ## Video
 
-[![Video](https://via.placeholder.com/)](https://www.youtube.com/)
+<a href="https://www.youtube.com/watch?v=pjjVxhPAPMQ"><img src="./documentation/Images/SOMOS GROW BANK 0-8 screenshot.png" width="100%"></a>
 
 ## Agradecimientos
 
